@@ -10,7 +10,7 @@
 
 body {
   font-family: "Mulish";
-  background-color: rgba(128, 128, 128, 0.568);
+  background-color: rgba(99, 96, 96, 0.547);
 }
 
 .navigation > nav {
@@ -47,10 +47,8 @@ body {
 }
 
 .blog-message {
-  background-image: linear-gradient(
-    rgba(0, 0, 0, 0.6), 
-    rgba(0, 0, 0, 0.6)
-  ), url(../images/blog.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(../images/blog.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -107,7 +105,6 @@ body {
   text-decoration: none;
   display: inline-block;
   margin-top: 10px;
-
 }
 
 .last-blogs a {
@@ -121,4 +118,9 @@ footer {
   background-color: #ffeae7;
   text-align: center;
   font-weight: bold;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
 }
