@@ -1,4 +1,4 @@
-#create-container {
+#edit-container {
     color: black;
     width: 360px;
     height: auto;
@@ -11,25 +11,25 @@
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
-#create-container h1 {
+#edit-container h1 {
     text-align: center;
     padding-top: 15px;
     color: black;
 }
 
-#create-container form {
+#edit-container form {
     width: 300px;
     margin-left: 20px;
 }
 
-#create-container form label {
+#edit-container form label {
     display: flex;
     margin-top: 20px;
     margin-bottom: 5px;
     font-size: 18px;
 }
 
-#create-container form input {
+#edit-container form input {
     width: 320px;
     height: 30px;
     padding-left: 7px;
@@ -40,12 +40,12 @@
     background-color: whitesmoke;
 }
 
-#create-container input::-webkit-inner-spin-button {
+#edit-container input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-#create-container form textarea {
+#edit-container form textarea {
     width: 320px;
     height: 200px;
     padding-left: 7px;
@@ -57,7 +57,7 @@
     resize: none;
 }
 
-#create-container input[type="submit"] {
+#edit-container input[type="submit"] {
     width: 320px;
     height: 35px;
     margin-top: 20px;
