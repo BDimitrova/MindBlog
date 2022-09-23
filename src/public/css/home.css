@@ -57,14 +57,14 @@ body {
   padding-bottom: 10%;
 }
 
-.blog-message h1 {
+.blog-message #site-title {
   padding-left: 9%;
   font-size: 46px;
   color: #ffeae7;
   font-weight: bold;
 }
 
-.blog-message h2 {
+.blog-message #site-mid-title {
   padding-left: 9%;
   font-size: 42px;
   color: #ffeae7;

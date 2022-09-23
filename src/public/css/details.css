@@ -19,8 +19,7 @@
   margin-right: auto;
 }
 
-.details-container-info h3,
-h2 {
+.details-container-info {
   text-align: center;
   padding-top: 1%;
 }
