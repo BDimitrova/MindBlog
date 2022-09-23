@@ -1,9 +1,11 @@
 const express = require('express');
 
+const { PORT } = require('./constans');
+
 const app = express();
-const PORT = 5000;
 
 require('./config/hbsConfig')(app);
+require('./config/expressConfig')(app);
 
 app.get('/', (req, res) => {
     res.render('home');
