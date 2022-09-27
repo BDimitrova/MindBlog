@@ -6,46 +6,13 @@
         </article>
 
         <!--If there are blogs in the database, show each one-->
-        <article class="all-blogs-card">
-            <article class="all-blogs-card-image">
-                <!-- Do not forget to change the path to the image -->
-                <img src="./static/images/blog-image.png" alt="blogs-icon">
-            </article>
-
-            <article class="all-blogs-card-content">
-                <!--You must put the headline value in <h2>-->
-                <h2>How to inspire your own creativity</h2>
-                <h3>Art and Design Blogs</h3>
-                <h3>By: megan.tres</h3>
-            </article>
-
-            <article class="all-blogs-card-buttons">
-                <a href="#" class="btn-details">Details</a>
-            </article>
-        </article>
-
-        <article class="all-blogs-card">
-            <article class="all-blogs-card-image">
-                <!-- Do not forget to change the path to the image -->
-                <img src="./static/images/blog-image.png" alt="blogs-icon">
-            </article>
-
-            <article class="all-blogs-card-content">
-                <!--You must put the headline value in <h2>-->
-                <h2>Wellness and Meditation</h2>
-                <h3>Health and Fitness Blogs</h4class=>
-                    <h3>By: catrine54</h3>
-            </article>
-
-            <article class="all-blogs-card-buttons">
-                <a href="#" class="btn-details">Details</a>
-            </article>
-        </article>
-
+        {{#each blog}}
+            {{> blog-card}}
+        {{else}}
         <!--If there are still no blogs in the database display:-->
-        <!--<article class="not-available-blogs">
-                <h1>No blogs created yet.</h1>
-            </article>-->
-
+        <article class="not-available-blogs">
+            <h1>No blogs created yet.</h1>
+        </article>
+        {{/each}}
     </section>
 </main>
