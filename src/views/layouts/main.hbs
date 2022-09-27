@@ -16,11 +16,11 @@
             <img src="/static/images/logo.jpg">
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="#">Blog</a></li>
+                <li><a href="/blog/catalog">Blog</a></li>
                 <!--For loggin users-->
                 {{#if user}}
-                <li><a href="#">Create Blog</a></li>
-                <li><a href="/logout">Logout</a></li>
+                <li><a href="/blog/create-blog">Create Blog</a></li>
+                <li><a href="/auth/logout">Logout</a></li>
 
                 <!--For guest users-->
                 {{else}}
