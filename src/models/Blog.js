@@ -33,6 +33,10 @@ blogSchema.method('getFollow', function () {
     return this.followList.map(x => x._id);
 });
 
+blogSchema.method('getUsername', function () {
+    return this.followList.map(x => x.username);
+})
+
 let Blog = mongoose.model('Blog', blogSchema);
 
 module.exports = Blog;
