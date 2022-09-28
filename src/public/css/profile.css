@@ -83,6 +83,7 @@
 
 .profile-blogs .created-blogs #section-title {
   text-align: center;
+  color: white;
 }
 
 .profile-blogs .info {
@@ -129,4 +130,11 @@
   font-size: 14px;
   color: white;
   font-weight: bold;
+}
+
+.no-blog-in-profile {
+  font-style: italic;
+  text-decoration: underline;
+  text-align: center;
+  margin-top: 30px;
 }

@@ -13,6 +13,8 @@ exports.findOwner = (userId) => User.findById(userId);
 
 exports.getMyFollowBlog = (userId) => Blog.find({ followList: userId}).lean();
 
+exports.getMyCreatedBlog = (userId) => Blog.find({ owner: userId}).lean();
+
 exports.getOne = (blogId) => Blog.findById(blogId).populate('followList');
 
 exports.delete = (blogId) => Blog.findByIdAndDelete(blogId);
