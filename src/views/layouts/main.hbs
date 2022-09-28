@@ -11,6 +11,14 @@
 
 <body>
 
+    {{#if error}}
+    <div>
+        <div class="errorContainer">
+            <p>{{error}}</p>
+        </div>
+    </div>
+    {{/if}}
+
     <div class="navigation">
         <nav>
             <img src="/static/images/logo.jpg">
@@ -19,6 +27,7 @@
                 <li><a href="/blog/catalog">Blogs</a></li>
                 <!--For loggin users-->
                 {{#if user}}
+                <li><a href="#">Profile</a></li>
                 <li><a href="/blog/create-blog">Create Blog</a></li>
                 <li><a href="/auth/logout">Logout</a></li>
 

@@ -28,20 +28,31 @@ router.get('/catalog', async (req, res) => {
     res.render('blogs/catalog', { blog });
 });
 
-router.get('/create-blog', async (req, res) => {
+router.get('/create-blog', isAuth, async (req, res) => {
     res.render('blogs/create');
 })
 
-router.post('/create-blog', async (req, res) => {
+router.post('/create-blog', isAuth, async (req, res) => {
     console.log(req.user);
     try {
         await blogServices.create({ ...req.body, owner: req.user });
         res.redirect('/blog/catalog');
     } catch (error) {
-        res.render('blogs/create', error)
+        res.render('blogs/create', { error: getErrorMessage(error)})
     }
 
 });
+
+function getErrorMessage(error) {
+    let errorsArr = Object.keys(error.errors);
+
+    if (errorsArr.length > 0) {
+        return error.errors[errorsArr[0]];
+    } else {
+        return error.message
+    }
+
+}
 
 router.get('/:blogId/details', async (req, res) => {
     let blog = await blogServices.getOne(req.params.blogId);
@@ -69,25 +80,25 @@ router.get('/:blogId/follow', async (req, res) => {
     res.redirect(`/blog/${req.params.blogId}/details`);
 });
 
-router.get('/:blogId/edit', async (req, res) => {
+router.get('/:blogId/edit', checkIsOwner, async (req, res) => {
     const blogId = req.params.blogId
     let blog = await blogServices.getOne(blogId);
     res.render('blogs/edit', { ...blog.toObject() })
 });
 
-router.post('/:blogId/edit', async (req, res) => {
+router.post('/:blogId/edit', checkIsOwner, async (req, res) => {
     try {
         const blogId = req.params.blogId;
         const blogData = req.body;
         await blogServices.update(blogId, blogData);
         res.redirect(`/blog/${blogId}/details`);
     } catch (error) {
-        res.render('blogs/edit')
+        res.render('blogs/edit', { error: getErrorMessage(error)})
     }
 
 });
 
-router.get('/:blogId/delete', async (req, res) => {
+router.get('/:blogId/delete', checkIsOwner, async (req, res) => {
     const blogId = req.params.blogId;
     await blogServices.delete(blogId);
     res.redirect('/blog/catalog');

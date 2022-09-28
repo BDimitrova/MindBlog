@@ -4,7 +4,7 @@ const { isGuest, isAuth } = require('../middleware/authMiddleware');
 const { AUTH_COOKIE_NAME } = require('../constants');
 
 router.get('/login', isGuest, (req, res) => {
-    res.render('auth/login');
+    res.render('auth/login', { title: 'Login Page' });
 });
 
 router.post('/login', isGuest, async (req, res) => {
@@ -19,7 +19,7 @@ router.post('/login', isGuest, async (req, res) => {
         res.cookie(AUTH_COOKIE_NAME, token);
         res.redirect('/');
     } catch (error) {
-        res.render('auth/login', { error: getErrorMessage(error) });
+        res.render('auth/login', { error: error.message });
     }
 
 });
@@ -32,7 +32,7 @@ router.post('/register', isGuest, async (req, res) => {
     const { username, email, password, confPass } = req.body;
 
     if (password !== confPass) {
-        res.locals.error = 'Passwords or Email do not match!'
+        res.locals.error = 'Passwords do not match!'
         return res.render('auth/register')
     };
 

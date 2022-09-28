@@ -3,19 +3,24 @@ const mongoose = require('mongoose');
 let blogSchema = new mongoose.Schema({
     title: {
         type: String,
-        require: true
+        require: true,
+        minLength: 5,
     },
     image: {
         type: String,
-        require: true
+        require: true,
+        validate: /^https?:\/\//i,
+        
     },
     content: {
         type: String,
-        require: true
+        require: true,
+        minLength: 10,
     },
     category: {
         type: String,
-        require: true
+        require: true,
+        minLength: 3,
     },
     followList: [
         {
