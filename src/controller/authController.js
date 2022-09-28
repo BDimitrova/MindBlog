@@ -4,7 +4,7 @@ const { isGuest, isAuth } = require('../middleware/authMiddleware');
 const { AUTH_COOKIE_NAME } = require('../constants');
 
 router.get('/login', isGuest, (req, res) => {
-    res.render('auth/login', { title: 'Login Page' });
+    res.render('auth/login');
 });
 
 router.post('/login', isGuest, async (req, res) => {
@@ -19,7 +19,7 @@ router.post('/login', isGuest, async (req, res) => {
         res.cookie(AUTH_COOKIE_NAME, token);
         res.redirect('/');
     } catch (error) {
-        res.render('auth/login', { error: error.message });
+        res.render('auth/login', { error: getErrorMessage(error) });
     }
 
 });
